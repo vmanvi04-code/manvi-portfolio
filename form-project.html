@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Forms </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            margin: 0 auto;
+            background-color: pink;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        table:hover {
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
+            transform: translateY(-2px);
+        }
+
+        tr:hover td {
+            background-color: rgba(255, 182, 217, 0.5);
+        }
+
+        td {
+            padding: 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="mail"],
+        textarea,
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:hover,
+        input[type="tel"]:hover,
+        input[type="email"]:hover,
+        input[type="mail"]:hover,
+        textarea:hover,
+        select:hover {
+            border-color: #ff69b4;
+            box-shadow: 0 2px 4px rgba(255, 105, 180, 0.2);
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="email"]:focus,
+        input[type="mail"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #ff69b4;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        input[type="radio"]:hover,
+        input[type="checkbox"]:hover {
+            transform: scale(1.1);
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #ff85c0;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Student Registration Form Using Table in HTML</h1><br>
+    </center>
+    <form>
+        <center>
+            <table bgcolor="pink">
+                <form action="#" method="get\post">
+                    <tr>
+                        <td>Ful Name</td>
+                        <td><input type="text" placeholder="Ghanendra" required> (Max 50 Charecters Allowed)</td>
+                    </tr>
+                    <tr>
+                        <td> Last Name </td>
+                        <td> <input type="text" placeholder="Yadav" required>(Max 50 Characters Allowed) </td>
+                    </tr>
+                    <tr>
+                        <td> Email ID </td>
+                        <td> <input type="mail" placeholder="yghanendra@gmail.com"> </td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Number </td>
+                        <td><input type="tel" placeholder="7842xxxxxx" required>(10 Digits Allowed)</td>
+                    </tr>
+                    <tr>
+                        <td>Gender </td>
+                        <td> male<input type="Radio" name="male">
+                            female <input type="Radio" name="female"></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth(DOB)</td>
+                        <td>
+                            <select>
+                                <option> day </option>
+                            </select>
+                            <select>
+                                <option> month</option>
+                            </select>
+                            <select>
+                                <option> year </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Address </td>
+                        <td> <textarea rows="10" cols="50"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>city </td>
+                        <td> <input type="text" placeholder="Banglore">(Max 50 Characters Allowed) </td>
+                    </tr>
+                    <tr>
+                        <td>Pin Code </td>
+                        <td><input type="text" placeholder="560088"> (Max 6 Numbers Allowed) </td>
+                    </tr>
+                    <tr>
+                        <td>State </td>
+                        <td><input type="text" placeholder="Karnataka"> (Max 50 Characters Allowed) </td>
+                    </tr>
+                    <tr>
+                        <td> Country </td>
+                        <td> <input type="text" placeholder=" India"> </td>
+                    </tr>
+                    <tr>
+                        <td>Hobbies </td>
+                        <td><input type="checkbox" name="Drawing"> Drawing
+                            <input type="checkbox" name="Singing"> Singing
+                            <input type="checkbox" name="Dancing"> Dancing
+                            <input type="checkbox" name="Sketching"> Sketching
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td><input type="checkbox"> others <input type="text" placeholder="Ex-Teaching">
+                            (Max 50 Characters Allowed)</td>
+                    </tr>
+                    <tr>
+                        <td> Qualification </td>
+                        <td> <input type="checkbox" name="High School(10th)"> High School(10th) </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td> <input type="checkbox" name="Higher School(12th)">Higher School (12th) </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td><input type="checkbox" name="Graduation(Bachelors)"> Graduation(Bachelors)</td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td> <input type="checkbox" name="Post Graduation(Masters)"> Post Graduation(Masters) </td>
+                    </tr>
+                    <tr>
+                        <td>Courses Apllied for </td>
+                        <td><input type="radio" name="FULL STACK">FULL STACK </td>
+                    </tr>
+                    <TR>
+                        <td> </td>
+                        <td> <input type="radio" name="DIGITAL MARKETING"> DIGITAL MARKETING</td>
+                    </TR>
+                    <TR>
+                        <td> </td>
+                        <td><input type="radio" name="DATA ANALYST"> DATA ANALYST </td>
+                    </TR>
+                    <tr>
+                        <td></td>
+                        <td><input type="radio" name="AI&ML"> AI&ML </td>
+                    </tr>
+                    <TR>
+                        <td> </td>
+                        <td><input type="radio" name="VFX 2D-3D ANIMATION"> VFX 2D-3D ANIMATION </td>
+                    </TR>
+                    <tr>
+                        <td> </td>
+                        <td><input type="submit" value="submit">
+                            <input type="submit" value="reset">
+                        </td>
+                    <tr>
+        </center>
+        </table>
+    </form>
+    </form>
+</body>
+
+</html>

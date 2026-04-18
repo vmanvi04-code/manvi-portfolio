@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables </title>
+    <style>
+        /* ----- MODERN RESET & VARIABLES ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fbf5e8 0%, #f7e9d7 100%);
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            margin: 0;
+            color: #1e1e2a;
+        }
+
+        th,
+        td,
+        img,
+        #title {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* ---------- FADE-IN ENTRANCE ANIMATION ---------- */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* end */
+        table {
+            animation: fadeIn 1s ease-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+        }
+
+        /* Subtle pulse on title after entrance */
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 0 rgba(255, 0, 0, 0);
+            }
+
+            50% {
+                text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+            }
+
+            100% {
+                text-shadow: 0 0 0 rgba(255, 0, 0, 0);
+            }
+        }
+
+        #title {
+            color: red;
+            animation: fadeIn 1.2s ease-out, pulse 2s infinite 1.5s;
+        }
+
+        #title:hover {
+            color: rgb(167, 0, 0);
+            transform: scale(1.02);
+        }
+
+        /* main card container – simple, clean */
+        .course-card {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 28px;
+            padding: 24px 28px 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid #ede0d4;
+        }
+
+        /* ---------- TABLE ROW HOVER EFFECT ---------- */
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        td:hover,
+        th:hover {
+            transform: scale(0.98);
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ---------- IMAGE HOVER ANIMATION ---------- */
+        img {
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        img:hover {
+            transform: rotate(2deg) scale(1.08);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        #hiit {
+            background-color: orange;
+        }
+
+        #hiit:hover {
+            /* background-color: rgb(220, 144, 2); */
+            background-color: rgb(220, 144, 2);
+        }
+
+        #schedule {
+            background-color: lightpink;
+        }
+
+        #schedule:hover {
+            background-color: rgb(233, 165, 175);
+        }
+
+        #website {
+            background-color: lightgreen;
+        }
+
+        #website:hover {
+            background-color: rgb(135, 228, 135);
+        }
+
+        #it {
+            background-color: lavender;
+        }
+
+        #it:hover {
+            background-color: rgb(211, 211, 233);
+        }
+
+        #accounts {
+            background-color: lightblue;
+        }
+
+        #accounts:hover {
+            background-color: rgb(163, 206, 220);
+        }
+
+        #info {
+            background-color: white;
+            transition: background-color 0.25s, transform 0.2s
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        #info:hover {
+            background-color: rgba(255, 255, 255, 0.918);
+            transform: translateY(-2px);
+            animation: bounce 2s ease;
+        }
+
+        /* Extra polish for table headers */
+        th {
+            font-weight: bold;
+            padding: 8px 12px;
+        }
+
+        td {
+            padding: 6px 10px;
+        }
+
+        /* responsive adjustment */
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .course-card {
+                padding: 18px 12px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ----- RESPONSIVE CSS  ----- */
+
+        /* Wrap table in a scrollable container on small screens */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -5px;
+            /* compensates for padding on mobile */
+            padding: 0 5px;
+        }
+
+        /* Table keeps its structure, becomes scrollable when needed */
+        table {
+            min-width: 850px;
+            /* ensures columns don't squeeze below readability */
+            width: 100%;
+            font-size: 0.95rem;
+        }
+
+        /* Scale images on smaller viewports */
+        @media (max-width: 700px) {
+
+            th img,
+            td img {
+                height: 100px !important;
+                width: 100px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.8rem !important;
+                align-items: flex-start;
+            }
+
+            .course-card {
+                padding: 16px 10px !important;
+                border-radius: 20px !important;
+            }
+
+            #title {
+                font-size: 2rem !important;
+            }
+
+            th img,
+            td img {
+                height: 80px !important;
+                width: 80px !important;
+            }
+
+            th,
+            td {
+                padding: 8px 6px !important;
+                font-size: 0.85rem;
+            }
+
+            /* Ensure long words/emails break */
+            td[rowspan] {
+                word-break: break-word;
+            }
+        }
+
+        /* Optional: fine-tune for very small devices */
+        @media (max-width: 360px) {
+            #title {
+                font-size: 1.7rem !important;
+            }
+
+            th img,
+            td img {
+                height: 65px !important;
+                width: 65px !important;
+            }
+        }
+
+        /* Keep hover effects intact but prevent scale on touch devices */
+        @media (hover: hover) {
+
+            td:hover,
+            th:hover {
+                transform: scale(0.98);
+                box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+            }
+
+            img:hover {
+                transform: rotate(2deg) scale(1.08);
+            }
+        }
+
+        /* Remove scale/rotation on devices without fine pointer */
+        @media (hover: none) and (pointer: coarse) {
+
+            td:hover,
+            th:hover,
+            img:hover {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="course-card">
+            <h1 id="title"> COURSES UNDER ONE ROOF </h1>
+            <div class="table-responsive">
+                <table border="2px">
+                    <tr>
+                        <th id="hiit-img" rowspan="3">
+                            <img src="images.png" height="150px" width="150px">
+                        <th id="hiit" colspan="3"> HIIT </th>
+                    </tr>
+                    <tr>
+                        <th id="schedule" colspan="2"> Schedule </th>
+                        <th id="website" rowspan="2"> website</th>
+                    </tr>
+                    <tr>
+                        <th id="it"> IT </th>
+                        <th id="accounts"> Accounts</th>
+                    </tr>
+                    </th>
+                    <tr>
+                        <th rowspan="3"> <img
+                                src="https://pbs.twimg.com/profile_images/1617397947901300737/ytd6IIUi_400x400.jpg"
+                                height="150px" width="150px">
+                        <td class="info" align="center"> FULL STACK </td>
+                        <td class="info" align="center"> HDFA</td>
+                        <td class="info" rowspan="2" align="center"> apphiit.hartronambala.in </td>
+                    <tr>
+                        <TD class="info" align="center"> DIGITAL MARKETING</TD>
+                        <TD class="info" align="center"> CCFA </TD>
+                    </tr>
+                    <tr>
+                        <td class="info" align="center"> VFX 2D-3D ANIMATION </td>
+                        <td class="info" align="center"> TAXATION TRAINING IN GST% </td>
+                        <td class="info" rowspan="2" align="center"> hiitambala@gmail.com</td>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th rowspan="3"><img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsNqE7N01_Tnaul-MJPCcN8oV6fgkuEVXXeQ&s.jpg"
+                                height="150px" width="150px">
+                        <td class="info" align="center"> DATA ANALYST </td>
+                        <td class="info" align="center"> TALLY WITH GST% </td>
+                    </tr>
+                    <tr>
+                        <td class="info" align="center"> AI& ML</td>
+                        <td class="info" align="center"> BUSY</td>
+                        <td class="info" rowspan="2" align="center"> HIIT LMS </td>
+                    </tr>
+                    <tr>
+                        <td class="info" align="center"> HDWT </td>
+                        <td class="info" align="center"> CA TRAINING </td>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </center>
+</body>
+
+</html>
